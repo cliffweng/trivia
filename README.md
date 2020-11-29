@@ -1,10 +1,15 @@
 # Trivia Web App
 
-It's a online trivia game for friends to play together.
+It's an online trivia game for friends to play together.
 
 For hackathon "Who wants to be a Hackionaire"
 
 https://whowantstobeahackionaire.devpost.com/
+
+## To run
+API server
+cd \OpenTriviaQA 
+node src\index.js
 
 ## Resources
 
@@ -15,10 +20,6 @@ https://github.com/cliffweng/OpenTriviaQA
 backend: NodeJS Express
 frontend: ReactJS
 web portal: Gatsby
-
-## Play Rules
-
-- A person can register a new game
 
 ## API Design
 
@@ -35,7 +36,7 @@ web portal: Gatsby
 
 ### Start a Game
 /start/:session
-- {"status":"Game started. 4 people are in the game", status_code:0}
+- {"status":"Game started. 4 people are in the game", "status_code":0}
 
 ### Get Next Question
 /get/:userid  (e.g. "http://localhost/get/20134/")
@@ -51,3 +52,41 @@ web portal: Gatsby
 ### Answer a Question
 /answer/:userid/:question_no/:answer (e.g. "http://localhost/answer/20134/12/A")
 - {"status":"Correct!", "win":6, "loss":3}
+
+### Get Random Question
+/question/
+/question/:category
+
+## Installation
+### Gatsby and React
+
+#### Install Gatsby
+```
+npm i -g gatsby-cli
+gatsby new web
+cd web
+npm install react-bootstrap bootstrap
+Add following to /src/components/layout.js
+    import 'bootstrap/dist/css/bootstrap.min.css';
+Add following to /src/pages/index.js
+    import {Button} from 'react-bootstrap'
+```
+Now the React is fully integrated with Gatsby!
+
+Change gabtsy-config.js and /src/pages/index.js to change the landing page!
+#### Add React
+Try the following in index.js
+```
+<Button variant="outline-primary" href="http://yahoo.com">Go to Yahoo</Button> <br />
+<Link className="btn btn-outline-primary" to="/page-2/">Go to page 2</Link> <br />
+```
+Launch the website! `gatsby develop`
+
+#### Add Axios
+
+Follow the [React Axios Tutorial](https://www.digitalocean.com/community/tutorials/react-axios-react)
+
+- npm install axios
+- Create /react/triviapage.js
+
+## 
