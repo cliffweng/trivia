@@ -37,9 +37,9 @@ const Layout = ({ children }) => {
         <footer style={{
           marginTop: `2rem`
         }}>
-          © {new Date().getFullYear()}, Built with
+          © {new Date().getFullYear()}, Built by
           {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          <a href="https://sites.google.com/view/saugatuckclan">Saugatuck Clan</a>
         </footer>
       </div>
     </>

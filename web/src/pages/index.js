@@ -16,7 +16,6 @@ const IndexPage = () => (
         <MultiUser/>
       </Tab>
     </Tabs>
-    <Link to="https://github.com/julianweng">My Github</Link>
   </Layout>
 )
 
