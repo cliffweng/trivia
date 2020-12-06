@@ -83,7 +83,7 @@ web portal: Gatsby
 
 ### Current Scores
 /scores/:session
-- {"julianw":13, "RunningGeek":12, "DW":10}
+- {"julianw":13, "jwusername":12, "DW":10}
 
 ### Answer a Question
 /answer/:userid/:question_no/:answer (e.g. "http://localhost/answer/20134/12/A")
