@@ -127,6 +127,7 @@ Follow the [React Axios Tutorial](https://www.digitalocean.com/community/tutoria
 
 ## Development
 
+cd web
 gatsby develop
 ## Deploy
 

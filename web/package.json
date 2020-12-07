@@ -31,6 +31,7 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build & ren public client && move client ..\\..\\OpenTrivia",
+    "delete": "rmdir /s /q  ..\\..\\OpenTrivia\\client & rmdir /s /q ..\\client",
     "develop": "gatsby develop -p 8000 -H 0.0.0.0",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",

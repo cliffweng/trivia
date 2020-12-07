@@ -3,11 +3,11 @@ import axios from 'axios';
 import {Form,Alert,ListGroup} from 'react-bootstrap';
 import {FormSelect} from './widgets';
 
-//let triviaServer = "http://trivia.julianweng.com:8000";
-let triviaServer = "";
+let triviaServer = "http://trivia.julianweng.com";
+// let triviaServer = "";
 class SingleUser extends React.Component {
     state = {
-        question: {"question":"Click anywhere on the question to get the next question", choices: {}},
+        question: {"question":"Click anywhere on the question to get the next question, then click on a selection below to answer. Click to start!", choices: {}, no:0},
         category: "",
         categories: ["All categories"],
         showAnswer: false,
@@ -25,21 +25,11 @@ class SingleUser extends React.Component {
       }
       this.setState({answer:key, showAnswer: true});
     }
-    handleAnswer (event) {
-      if (event !== null) {
-        if(event.target.value.substring(4) === this.state.question.answer) {
-          this.setState({ totalCorrect: this.state.totalCorrect + 1, v:'success'});
-        } else {
-          this.setState({ totalWrong: this.state.totalWrong + 1, v:'warning'});
-        }
-        this.setState({answer:event.target.key, showAnswer: true});
-      }
-    }
     handleSelect (event) {
       if (event !== null)
         this.setState({category: event.target.value});
     }
-    handleSubmit1 = event => {
+    handleQuestion = event => {
         event.preventDefault();
         var url = triviaServer+`/question/`;
         if (this.state.category !== "All categories")
@@ -59,8 +49,8 @@ class SingleUser extends React.Component {
 
     }
     render() {
-        return (
-        <form >
+      return (
+        <div>
         <Alert variant='info'>
          total:<b>{this.state.totalQuestions}</b>, right:<b>{this.state.totalCorrect}</b>, 
          wrong:<b>{this.state.totalWrong}</b></Alert>
@@ -69,8 +59,8 @@ class SingleUser extends React.Component {
             onChange={(e) => this.handleSelect(e)}
             options={this.state.categories}
           />
-          <div>#{this.state.question.no}</div>
-          <h3 onClick={this.handleSubmit1}>{this.state.question.question}</h3>
+          {/* <div>#{this.state.question.no}</div> */}
+          <h3 onClick={this.handleQuestion}>{this.state.question.question}</h3>
         </div>
         <div>
         <ListGroup>
@@ -80,9 +70,7 @@ class SingleUser extends React.Component {
 
         { this.state.showAnswer ? <Alert variant={this.state.v} class="display-4">{this.state.question.answer} (you answered {this.state.answer})</Alert> : null }
         </div>
-        <div class="form-group">
         </div>
-        </form>
         )
       }
 }
